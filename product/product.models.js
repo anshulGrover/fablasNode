@@ -47,7 +47,23 @@ const product_schema=mongoose.Schema({
 				price:{
 					type:String,
 					required:true
-				}
+				},
+				stock:{
+					type:String,
+					required:true
+				},
+				description:[
+					{
+						title:{
+							type:String,
+							required:false
+						},
+						content:{
+							type:String,
+							required:false
+						}
+					}
+				]
 			}
 		]
 	}]    

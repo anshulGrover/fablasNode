@@ -8,10 +8,6 @@ const service_schema=mongoose.Schema({
 		type:String,
 		required:true
 	},
-	serviceImage:{
-		type:String,
-		required:true
-	},
 	serviceDescription:{
 		type:String,
 		required:true

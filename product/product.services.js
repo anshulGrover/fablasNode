@@ -1,4 +1,4 @@
-
+ 
 // import config from '../bone_helpers/bone.config';
 var db =require( "../bone_helpers/bone.db");
 // const MongoClient=require('mongodb').MongoClient;
@@ -53,8 +53,19 @@ const getProductBySubCategory=(id) => {
 	});
 };
 
+const getSubCategoryByCategory=(id)=>{
+		return new Promise((resolve,reject) => {
+			Product.find({"categoryId":id},{"subCategory.name":1,"subCategory.id":1,_id:0}).then((success) => {
+				const x=success[0].subCategory;
+				resolve(x);
+			}).catch((err) => {
+				reject(err);
+			})
+		})	
+};
+
 module.exports={
     
-	getProduct,getCategories,getProductById,getProductBySubCategory
+	getProduct,getCategories,getProductById,getProductBySubCategory,getSubCategoryByCategory
 };
 
