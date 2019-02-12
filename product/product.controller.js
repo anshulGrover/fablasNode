@@ -48,4 +48,13 @@ router.post("/getSubcategoryByCategory",(req,res,next) => {
     
 });
 });
+router.post("/getSubcategory", (req, res, next) => {
+	const name = req.body.cat_name;
+	productServices.getSubCategory(name).then((result) => {
+		res.json(result);
+	}).catch((err) => {
+		res.sendStatus(404);
+
+	});
+});
 module.exports= router;

@@ -63,9 +63,23 @@ const getSubCategoryByCategory=(id)=>{
 			})
 		})	
 };
+const getSubCategory = (name) => {
+	console.log(name);
+	
+	return new Promise((resolve, reject) => {
+		Product.find({ "categoryName": name}).then((success) => {
+			const x = success[0].subCategory;
+			console.log(x);
+			
+			resolve(x);
+		}).catch((err) => {
+			reject(err);
+		})
+	})
+};
 
 module.exports={
     
-	getProduct,getCategories,getProductById,getProductBySubCategory,getSubCategoryByCategory
+	getProduct,getCategories,getProductById,getProductBySubCategory,getSubCategoryByCategory,getSubCategory
 };
 
