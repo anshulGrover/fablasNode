@@ -29,10 +29,18 @@ const getProductById=(id) => {
 	return new Promise((resolve,reject) => {
 		// getting all Users
 		Product.findOne({"subCategory.productsList.id":id})
-			.then( (success) => {
-				const x=success.subCategory[0].productsList;
-				const wanted=x.filter(function(item){return (item.id===id);});
-				resolve(wanted[0]);
+			.then( (success) => {			
+				const wanted=success.subCategory.filter(function(item){
+					const x=item.productsList.filter(function(itm){
+						return itm.id===id;
+					})
+					return x;
+				})
+				console.log(wanted);
+					
+				//const x=success.subCategory[0].productsList;
+				//const wanted=x.filter(function(item){return (item.id===id);});
+				resolve(wanted);
 			})
 			.catch( (err) => {
 				reject(err);
@@ -44,8 +52,8 @@ const getProductBySubCategory=(id) => {
 		// getting all Users
 		Product.find({"subCategory.id":id})
 			.then( (success) => {
-				const x=success[0].subCategory[0].productsList;
-				resolve(x);
+				const x=success[0].subCategory.filter(function(item){return (item.id===id)});
+				resolve(x[0].productsList);
 			})
 			.catch( (err) => {
 				reject(err);

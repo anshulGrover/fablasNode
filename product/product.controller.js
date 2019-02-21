@@ -22,9 +22,11 @@ router.post("/getCategories",(req,res,next) => {
 });
 router.post("/getProductById",(req,res,next) => {
 	const id = req.body.id;	
+	console.log(id);
 	productServices.getProductById(id).then((result) => {
 		res.json(result);
 }).catch((err) => {
+	console.log(err);
 		res.sendStatus(404);
     
 });
