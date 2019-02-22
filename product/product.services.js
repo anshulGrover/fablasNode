@@ -6,7 +6,7 @@ const Product = db.Product;
 const getProduct=() => {
 	return new Promise((resolve,reject) => {
 		// getting all Users
-		Product.find()
+		Product.find().sort({categoryId:1})
 			.then( (success) => {
 				resolve(success);
 			})
