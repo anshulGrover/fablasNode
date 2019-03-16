@@ -1,6 +1,8 @@
 var express=require("express") ;
 var productServices =require("./product.services") ;
 const router = express.Router();
+var mongoose = require("mongoose");
+
 
 //get all products
 router.get("/getProducts",(req,res,next) => {
@@ -21,9 +23,12 @@ router.post("/getCategories",(req,res,next) => {
 	
 });
 router.post("/getProductById",(req,res,next) => {
-	const id = req.body.id;	
+	const id = req.body.id;
+	const sId=req.body.sId;	
 	console.log(id);
-	productServices.getProductById(id).then((result) => {
+	console.log(sId);
+	
+	productServices.getProductById(id,sId).then((result) => {
 		res.json(result);
 }).catch((err) => {
 	console.log(err);
@@ -59,4 +64,68 @@ router.post("/getSubcategory", (req, res, next) => {
 
 	});
 });
+router.post("/addCategory",(req,res,next) => {
+	const{
+		categoryName,
+		categoryDescription,
+		categoryImage
+	}=req.body;
+
+	productServices.addCategory({
+		categoryName,
+		categoryDescription,
+		categoryImage
+	}).then((result) => {
+		res.json(result);
+	}).catch((err) => {
+		console.log(err);
+		
+		res.sendStatus(404);
+	});
+})
+router.post("/addSubcategory",(req,res,next) => {
+	const{
+		categoryId,
+		name
+	}=req.body;
+	productServices.addSubCategory(categoryId,name).then((result) => {
+		res.json(result);
+	}).catch((err) => {
+		console.log(err);
+		
+		res.sendStatus(404);
+	})
+})
+router.post("/addProduct",(req,res,next) => {
+	const{
+		id,
+		name,
+		imagepath,
+		isFeatured,
+		price,
+		stock,
+		images,
+		shortDesc,
+		fullDesc,
+		details
+	}=req.body;
+	var data={
+		name,
+		imagepath,
+		isFeatured,
+		price,
+		stock,
+		images,
+		shortDesc,
+		fullDesc,
+		details
+	}
+	productServices.addProducts(id,data).then((result) => {
+		res.json(result);
+	}).catch((err) => {
+		console.log(err);
+		res.sendStatus(404);
+	})
+})
+
 module.exports= router;

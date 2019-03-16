@@ -4,9 +4,8 @@ const product_schema=mongoose.Schema({
 		type:String,
 		required:true
 	},
-	categoryId:{
-		type:String,
-		required:true
+	categoryId: {
+		type: mongoose.Schema.ObjectId, auto: true
 	},
 	categoryDescription:{
 		type:String,
@@ -21,15 +20,11 @@ const product_schema=mongoose.Schema({
 			type:String,
 			required:true
 		},
-		id:{
-			type:String,
-			required:true
-		},
+		id: {type:mongoose.Schema.Types.ObjectId,auto:true},
 		productsList:[
 			{
-				id:{
-					type:String,
-					required:true
+				id:{ type: mongoose.Schema.Types.ObjectId,
+					 auto: true 
 				},
 				name:{
 					type:String,
@@ -41,7 +36,6 @@ const product_schema=mongoose.Schema({
 				},
 				isFeatured:{
 					type:Boolean,
-					required:true,
 					default:false
 				},
 				price:{
@@ -52,18 +46,44 @@ const product_schema=mongoose.Schema({
 					type:String,
 					required:true
 				},
-				description:[
+				images:{
+					thumbnails:[],
+					largeImages:[]
+				},
+				shortDesc:{
+					type:String
+				},
+				fullDesc:{
+					type:String
+				},
+				details:[
 					{
 						title:{
-							type:String,
-							required:false
+							type:String
+							
 						},
-						content:{
-							type:String,
-							required:false
+						desc:{
+							type:String
+							
+						},
+						categoryIcon:{
+							type:String
+							
 						}
 					}
-				]
+				],
+				colours:[],
+				productFeature:{
+					type:String,
+					default:""
+				},
+				productUsage:{
+					type: String,
+					default: ""
+				},productSize:{
+					type: String,
+					default: ""
+				}
 			}
 		]
 	}]    
