@@ -7,7 +7,7 @@ const Product = db.Product;
 const getProduct=() => {
 	return new Promise((resolve,reject) => {
 		// getting all Users
-		Product.find().sort({categoryId:1})
+		Product.find().sort({categoryImage:1})
 			.then( (success) => {
 				resolve(success);
 			})

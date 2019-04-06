@@ -46,10 +46,10 @@ const product_schema=mongoose.Schema({
 					type:String,
 					required:true
 				},
-				images:{
-					thumbnails:[],
-					largeImages:[]
-				},
+				images:[{
+					thumbnails:[{type:String}],
+					largeImages:[{type:String}]
+				}],
 				shortDesc:{
 					type:String
 				},
@@ -72,7 +72,7 @@ const product_schema=mongoose.Schema({
 						}
 					}
 				],
-				colours:[],
+				colours:[{type:String}],
 				productFeature:{
 					type:String,
 					default:""
