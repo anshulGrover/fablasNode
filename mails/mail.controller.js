@@ -83,4 +83,23 @@ router.post("/jobSeeker",(req,res,next)=>{
 		res.sendStatus(400);
     });
 })
+
+router.post("/contactUs",(req,res,next)=>{
+    const{
+        name,
+        email,
+        message
+    }=req.body;
+    var data={
+        name,
+        email,
+        message
+    }
+    mailServices.sendContactUs(data).then((result) => {
+        res.json(result);
+    }).catch((err) => {
+        console.log(err);
+		res.sendStatus(400);
+    });
+})
 module.exports= router;
