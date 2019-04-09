@@ -3,17 +3,20 @@ var nodemailer=require('nodemailer');
 const sendVendor=(data) => {
     return new Promise((resolve, reject) => {
         var transporter =  nodemailer.createTransport({
-            host:"smtp.gmail.com",
-            port:465,
-            secure:true,
+            host:"166.62.10.188",
+            port:587,
+            secure:false,
+            tls: {
+                rejectUnauthorized:false
+            },
             auth: { 
-              user: "anuanshul.grover@gmail.com",
-              pass: "janakgrover"
+              user: "info@fablas.co.in",
+              pass: "Summer@69"
             }
           });
           var mailBody=`Full Name : ${data.fullName}\nBusiness Name : ${data.businessName}\nBusiness Address : ${data.businessAddress}\nCity : ${data.city}\nCountry : ${data.city}\nPrimary Business Type : ${data.permanentBusinessType}\nWebsite : ${data.website}`;
           var mailOptions={
-              from:"anuanshul.grover@gmail.com",
+              from:"info@fablas.co.in",
               to:"anshul1601.grover@gmail.com",
               subject:"From Vendor api",
               text:mailBody
