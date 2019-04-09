@@ -17,7 +17,7 @@ const sendVendor=(data) => {
           var mailBody=`Full Name : ${data.fullName}\nBusiness Name : ${data.businessName}\nBusiness Address : ${data.businessAddress}\nCity : ${data.city}\nCountry : ${data.city}\nPrimary Business Type : ${data.permanentBusinessType}\nWebsite : ${data.website}`;
           var mailOptions={
               from:"info@fablas.co.in",
-              to:"anshul1601.grover@gmail.com",
+              to:"stackdesignerkush@gmail.com",
               subject:"From Vendor api",
               text:mailBody
           }
