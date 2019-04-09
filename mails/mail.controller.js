@@ -25,7 +25,7 @@ router.post("/vendor",(req,res,next)=>{
         res.json(result);
     }).catch((err) => {
         console.log(err);
-		res.send(err);
+		res.sendStatus(400);
     });
 })
 
