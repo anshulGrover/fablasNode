@@ -8,6 +8,7 @@ var usersController =require('./users/users.controller');
 var productController =require('./product/product.controller'); 
 var serviceController =require('./service/service.controller'); 
 var router =require( './users/users.controller');
+var mailController=require('./mails/mail.controller');
 
 
 
@@ -24,6 +25,8 @@ fetch_router.use('/products',productController);
 fetch_router.use( '/users' , usersController);
 // Service Endpoint
 fetch_router.use('/services',serviceController);
+// Mailing Endpoint
+fetch_router.use('/send',mailController);
 
 
 
