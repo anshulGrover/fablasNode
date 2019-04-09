@@ -3,7 +3,7 @@ var nodemailer=require('nodemailer');
 const sendVendor=(data) => {
     return new Promise((resolve, reject) => {
         if(data.fullName===undefined||data.businessName===undefined||data.businessAddress===undefined||data.city===undefined||data.country===undefined||data.permanentBusinessType===undefined||data.website===undefined){            
-            resolve("Unable to process your request please try again with all fields!");
+            reject("Unable to process your request. Please try again with all fields!");
         }
         else{
         var transporter =  nodemailer.createTransport({
