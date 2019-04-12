@@ -26,13 +26,13 @@ const product_schema=mongoose.Schema({
 				id:{ type: mongoose.Schema.Types.ObjectId,
 					 auto: true 
 				},
-				name:{
+				productName:{
 					type:String,
 					required:true
 				},
 				imagepath:{
 					type:String,
-					required:true
+					default:""
 				},
 				isFeatured:{
 					type:Boolean,
@@ -40,15 +40,15 @@ const product_schema=mongoose.Schema({
 				},
 				price:{
 					type:String,
-					required:true
+					default:""
 				},
 				stock:{
 					type:String,
-					required:true
+					default:""
 				},
 				images:[{
-					thumbnails:[{type:String}],
-					largeImages:[{type:String}]
+					thumbnails:[{type:String,default:""}],
+					largeImages:[{type:String,default:""}]
 				}],
 				shortDesc:{
 					type:String

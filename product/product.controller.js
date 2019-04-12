@@ -98,8 +98,8 @@ router.post("/addSubcategory",(req,res,next) => {
 })
 router.post("/addProduct",(req,res,next) => {
 	const{
-		id,
-		name,
+		subCategory,
+		productName,
 		imagepath,
 		isFeatured,
 		colours,
@@ -113,7 +113,7 @@ router.post("/addProduct",(req,res,next) => {
 		productUsage,brand
 	}=req.body;
 	var data={
-		name,
+		productName,
 		imagepath,
 		isFeatured,
 		colours,
@@ -126,7 +126,7 @@ router.post("/addProduct",(req,res,next) => {
 		productFeature,
 		productUsage,brand
 	}
-	productServices.addProducts(id,data).then((result) => {
+	productServices.addProducts(subCategory,data).then((result) => {
 		res.json(result);
 	}).catch((err) => {
 		console.log(err);

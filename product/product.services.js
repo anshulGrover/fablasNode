@@ -116,14 +116,17 @@ const addSubCategory=(categoryId,name)=>{
 	})
 }
 
-const addProducts=(id,data)=>{
+const addProducts=(subCategory,data)=>{
+	console.log(subCategory);
+	
 	return new Promise((resolve,reject) => {
-		Product.findOne({"subCategory.id":id}).then((product) => {
+		Product.findOne({"subCategory.id":subCategory}).then((product) => {
+			console.log(product);
 			if(!product){
 				resolve("Category not exist")
 			}
 			else{
-				const requiredSub=product.subCategory.filter(function(item){return item.id==id});
+				const requiredSub=product.subCategory.filter(function(item){return item.id==subCategory});
 				console.log(requiredSub);
 				requiredSub[0].productsList.push(data);
 				product.save().then((product) => {
