@@ -83,6 +83,9 @@ const product_schema=mongoose.Schema({
 				},productSize:{
 					type: String,
 					default: ""
+				},brand:{
+					type:String,
+					default:""
 				}
 			}
 		]

@@ -108,7 +108,9 @@ router.post("/addProduct",(req,res,next) => {
 		images,
 		shortDesc,
 		fullDesc,
-		details
+		details,
+		productFeature,
+		productUsage,brand
 	}=req.body;
 	var data={
 		name,
@@ -120,7 +122,9 @@ router.post("/addProduct",(req,res,next) => {
 		images,
 		shortDesc,
 		fullDesc,
-		details
+		details,
+		productFeature,
+		productUsage,brand
 	}
 	productServices.addProducts(id,data).then((result) => {
 		res.json(result);
