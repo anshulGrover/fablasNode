@@ -31,8 +31,8 @@ const getProductById=(id,sId) => {
 		// getting all Users
 		Product.findOne({"subCategory.productsList.id":id})
 			.then( (success) => {	
-				const x=success.subCategory.filter(function(item){return (item.id===sId)});	
-				const wanted=x[0].productsList.filter(function(item){return (item.id===id)});
+				const x=success.subCategory.filter(function(item){return (item.id==sId)});	
+				const wanted=x[0].productsList.filter(function(item){return (item.id==id)});
 
 				// const x = success.subCategory[0].productsList;
 				// const wanted = x.filter(function (item) { return (item.id === id); });
@@ -48,10 +48,19 @@ const getProductBySubCategory=(id) => {
 		// getting all Users
 		Product.find({"subCategory.id":id})
 			.then( (success) => {
+				const parentcategory=success[0].categoryName;
 				const x=success[0].subCategory.filter(function(item){return (item.id==id)});
-				resolve(x[0].productsList);
+				const original=x[0].productsList;
+				for(var i=0;i<original.length;i++){
+					original[i].categoryName=parentcategory;
+				}
+				console.log(original[0].categoryName);
+				
+				resolve(original);
 			})
 			.catch( (err) => {
+				console.log(err);
+				
 				reject(err);
 			});
 	});

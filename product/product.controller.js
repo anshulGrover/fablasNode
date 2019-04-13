@@ -111,7 +111,7 @@ router.post("/addProduct",(req,res,next) => {
 		details,
 		productFeature,
 		productUsage,brand
-	}=req.body;
+	}	=req.body;
 	var data={
 		productName,
 		imagepath,
