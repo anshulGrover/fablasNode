@@ -133,5 +133,42 @@ router.post("/addProduct",(req,res,next) => {
 		res.sendStatus(404);
 	})
 })
-
+router.put("/updateProduct",(req,res,next) => {
+	const{
+		id,
+		subCategory,
+		productName,
+		imagepath,
+		isFeatured,
+		colours,
+		price,
+		stock,
+		images,
+		shortDesc,
+		fullDesc,
+		details,
+		productFeature,
+		productUsage,brand
+	}=req.body
+	var data={
+		productName,
+		imagepath,
+		isFeatured,
+		colours,
+		price,
+		stock,
+		images,
+		shortDesc,
+		fullDesc,
+		details,
+		productFeature,
+		productUsage,brand
+	}
+	productServices.updateProduct(id,subCategory,data).then((result) => {
+		res.json(result)
+	}).catch((err) => {
+		console.log(err);
+		res.sendStatus(404);
+	})
+})
 module.exports= router;

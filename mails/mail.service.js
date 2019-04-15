@@ -21,7 +21,7 @@ const sendVendor=(data) => {
           var mailBody=`Full Name : ${data.fullName}\nBusiness Name : ${data.businessName}\nBusiness Address : ${data.businessAddress}\nCity : ${data.city}\nCountry : ${data.country}\nPrimary Business Type : ${data.permanentBusinessType}\nWebsite : ${data.website}`;
           var mailOptions={
               from:"info@fablas.co.in",
-              to:"career@fablas.com",
+              to:"anshul1601.grover@gmail.com",
               subject:"Vendor form",
               text:mailBody
           }
@@ -58,7 +58,7 @@ const sendDistributor=(data) => {
           var mailBody=`Full Name : ${data.fullName}\nCompany Name : ${data.companyName}\nCompany Address : ${data.companyAddres}\nMobile : ${data.mobile}\nEmail : ${data.email}\nCity : ${data.city}\nCountry : ${data.country}\nInvestment Range : ${data.investmentRange}\nWebsite : ${data.website}\nAbout you : ${data.aboutYou}`;
           var mailOptions={
               from:"info@fablas.co.in",
-              to:"career@fablas.com",
+              to:"anshul1601.grover@gmail.com",
               subject:"Distributor Form",
               text:mailBody
           }
@@ -95,7 +95,7 @@ const sendJobSeeker=(data) => {
           var mailBody=`Full Name : ${data.fullName}\nMobile : ${data.mobile}\nEmail : ${data.email}\nApplying For : ${data.applyingFor}\nMessage : ${data.message}`;
           var mailOptions={
               from:"info@fablas.co.in",
-              to:"career@fablas.com",
+              to:"anshul1601.grover@gmail.com",
               subject:"Job seeker form",
               text:mailBody
           }

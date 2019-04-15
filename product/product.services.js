@@ -50,13 +50,11 @@ const getProductBySubCategory=(id) => {
 			.then( (success) => {
 				const parentcategory=success[0].categoryName;
 				const x=success[0].subCategory.filter(function(item){return (item.id==id)});
-				const original=x[0].productsList;
-				for(var i=0;i<original.length;i++){
-					original[i].categoryName=parentcategory;
-				}
-				console.log(original[0].categoryName);
-				
-				resolve(original);
+				console.log(typeof x[0]);	
+				//x.push(parentcategory);
+				// const original=[];
+				// original.push(parentcategory);
+				resolve(x[0].productsList);
 			})
 			.catch( (err) => {
 				console.log(err);
@@ -150,8 +148,21 @@ const addProducts=(subCategory,data)=>{
 		})
 	})
 }
+const updateProduct=(id,subCategory,data)=>{
+	console.log(id);
+	console.log(subCategory);
+	return new Promise((resolve,reject) => {
+		Product.find({"subCategory.productsList.id":id},{"subCategory.productsList.$":1}).then((result) => {
+			resolve(result);
+		}).catch((err) => {
+			reject(err);
+		});
+	})
+	
+	
+}	
 module.exports={
     
-	getProduct,getCategories,getProductById,getProductBySubCategory,getSubCategoryByCategory,getSubCategory,addCategory,addSubCategory,addProducts
+	getProduct,getCategories,getProductById,getProductBySubCategory,getSubCategoryByCategory,getSubCategory,addCategory,addSubCategory,addProducts,updateProduct
 };
 
