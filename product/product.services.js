@@ -51,10 +51,10 @@ const getProductBySubCategory=(id) => {
 				const parentcategory=success[0].categoryName;
 				const x=success[0].subCategory.filter(function(item){return (item.id==id)});
 				console.log(typeof x[0]);	
-				//x.push(parentcategory);
+				x.push(parentcategory);
 				// const original=[];
 				// original.push(parentcategory);
-				resolve(x[0].productsList);
+				resolve(x);
 			})
 			.catch( (err) => {
 				console.log(err);
