@@ -170,7 +170,7 @@ const updateProduct=(id,subCategory,data)=>{
 							{"inner.id":id}]
 		}
 		).then((result) => {
-			resolve("product updated");
+			resolve(result);
 		}).catch((err) => {
 			reject(err);
 		});
