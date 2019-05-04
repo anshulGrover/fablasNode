@@ -142,7 +142,7 @@ router.put("/updateProduct",(req,res,next) => {
 		productImages,
 		productFeature,
 		productUsage
-	}=req.body
+	}=req.body.data
 	var data={
 		productName,
 		productStock,
