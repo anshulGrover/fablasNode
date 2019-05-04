@@ -151,9 +151,26 @@ const addProducts=(subCategory,data)=>{
 const updateProduct=(id,subCategory,data)=>{
 	console.log(id);
 	console.log(subCategory);
+	var images=[{path:data.productImages}];
+	console.log(images);
+	
+	
 	return new Promise((resolve,reject) => {
-		Product.find({"subCategory.productsList.id":id},{"subCategory.productsList.$":1}).then((result) => {
-			resolve(result);
+		
+		Product.update({"subCategory":{$elemMatch:{id:subCategory,"productsList.id":id}}},
+		{"$set":{
+			"subCategory.$[outer].productsList.$[inner].productName":data.productName,
+			"subCategory.$[outer].productsList.$[inner].stock":data.productStock,
+			"subCategory.$[outer].productsList.$[inner].productFeature":data.productFeature,
+			"subCategory.$[outer].productsList.$[inner].productUsage":data.productUsage,
+			"subCategory.$[outer].productsList.$[inner].images":images
+		}},
+		{
+			"arrayFilters":[{"outer.id":subCategory,},
+							{"inner.id":id}]
+		}
+		).then((result) => {
+			resolve("product updated");
 		}).catch((err) => {
 			reject(err);
 		});
