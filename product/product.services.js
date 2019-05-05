@@ -163,7 +163,11 @@ const updateProduct=(id,subCategory,data)=>{
 			"subCategory.$[outer].productsList.$[inner].stock":data.productStock,
 			"subCategory.$[outer].productsList.$[inner].productFeature":data.productFeature,
 			"subCategory.$[outer].productsList.$[inner].productUsage":data.productUsage,
-			"subCategory.$[outer].productsList.$[inner].images":images
+			"subCategory.$[outer].productsList.$[inner].images":images,
+			"subCategory.$[outer].productsList.$[inner].productSize":data.productSize,
+			"subCategory.$[outer].productsList.$[inner].colours":data.productColours,
+			"subCategory.$[outer].productsList.$[inner].description":data.productDescription
+
 		}},
 		{
 			"arrayFilters":[{"outer.id":subCategory,},

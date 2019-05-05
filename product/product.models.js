@@ -47,11 +47,9 @@ const product_schema=mongoose.Schema({
 					default:""
 				},
 				images:[],
-				shortDesc:{
-					type:String
-				},
-				fullDesc:{
-					type:String
+				description:{
+					type:String,
+					deafult:""
 				},
 				details:[
 					{

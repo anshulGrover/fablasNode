@@ -141,14 +141,20 @@ router.put("/updateProduct",(req,res,next) => {
 		productStock,
 		productImages,
 		productFeature,
-		productUsage
+		productUsage,
+		productDescription,
+		productColours,
+		productSize
 	}=req.body.data;
 	var data={
 		productName,
 		productStock,
 		productImages,
 		productFeature,
-		productUsage
+		productUsage,
+		productDescription,
+		productColours,
+		productSize
 	}
 	productServices.updateProduct(productId,productSubCatId,data).then((result) => {
 		res.json(result)
