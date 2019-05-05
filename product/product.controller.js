@@ -111,7 +111,7 @@ router.post("/addProduct",(req,res,next) => {
 		details,
 		productFeature,
 		productUsage,brand
-	}	=req.body;
+	}	=req.body.data;
 	var data={
 		productName,
 		imagepath,
@@ -142,7 +142,7 @@ router.put("/updateProduct",(req,res,next) => {
 		productImages,
 		productFeature,
 		productUsage
-	}=req.body.data
+	}=req.body.data;
 	var data={
 		productName,
 		productStock,

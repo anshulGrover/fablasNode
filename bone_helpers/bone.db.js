@@ -8,6 +8,7 @@ var config= require('./bone.config') ;
 var User= require('../users/users.model') ;
 var Product =require('../product/product.models') 
 var Service =require('../service/service.models') 
+var News=require('../news/news.models')
 
 
 // Database Connection
@@ -21,5 +22,6 @@ mongoose.Promise = global.Promise;
 module.exports= {
     User: User,
     Product:Product,
-    Service:Service
+    Service:Service,
+    News:News
 };

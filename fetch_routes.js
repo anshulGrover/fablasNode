@@ -9,6 +9,7 @@ var productController =require('./product/product.controller');
 var serviceController =require('./service/service.controller'); 
 var router =require( './users/users.controller');
 var mailController=require('./mails/mail.controller');
+var newsController=require('./news/news.controller');
 
 
 
@@ -27,7 +28,8 @@ fetch_router.use( '/users' , usersController);
 fetch_router.use('/services',serviceController);
 // Mailing Endpoint
 fetch_router.use('/send',mailController);
-
+//News Endpoint
+fetch_router.use('/news',newsController);
 
 
 // Exporting the Module
