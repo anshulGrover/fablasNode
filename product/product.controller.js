@@ -110,6 +110,10 @@ router.post("/addProduct",(req,res,next) => {
 		fullDesc,
 		details,
 		productFeature,
+		description,
+		metaClonical,
+		metaDescription,
+		metaTitle,
 		productUsage,brand
 	}	=req.body.data;
 	var data={
@@ -124,6 +128,10 @@ router.post("/addProduct",(req,res,next) => {
 		fullDesc,
 		details,
 		productFeature,
+		description,
+		metaClonical,
+		metaDescription,
+		metaTitle,
 		productUsage,brand
 	}
 	productServices.addProducts(subCategory,data).then((result) => {
@@ -144,7 +152,12 @@ router.put("/updateProduct",(req,res,next) => {
 		productUsage,
 		productDescription,
 		productColours,
-		productSize
+		productSize,
+		productPrice,
+		metaTitle,
+		metaDescription,
+		metaClonical,
+		details
 	}=req.body.data;
 	var data={
 		productName,
@@ -154,7 +167,12 @@ router.put("/updateProduct",(req,res,next) => {
 		productUsage,
 		productDescription,
 		productColours,
-		productSize
+		productSize,
+		productPrice,
+		metaTitle,
+		metaDescription,
+		metaClonical,
+		details
 	}
 	productServices.updateProduct(productId,productSubCatId,data).then((result) => {
 		res.json(result)

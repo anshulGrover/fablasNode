@@ -151,8 +151,8 @@ const addProducts=(subCategory,data)=>{
 const updateProduct=(id,subCategory,data)=>{
 	console.log(id);
 	console.log(subCategory);
-	var images=[{path:data.productImages}];
-	console.log(images);
+	//var images=[{path:data.productImages}];
+	//console.log(images);
 	
 	
 	return new Promise((resolve,reject) => {
@@ -163,10 +163,16 @@ const updateProduct=(id,subCategory,data)=>{
 			"subCategory.$[outer].productsList.$[inner].stock":data.productStock,
 			"subCategory.$[outer].productsList.$[inner].productFeature":data.productFeature,
 			"subCategory.$[outer].productsList.$[inner].productUsage":data.productUsage,
-			"subCategory.$[outer].productsList.$[inner].images":images,
+			"subCategory.$[outer].productsList.$[inner].images":data.productImages,
 			"subCategory.$[outer].productsList.$[inner].productSize":data.productSize,
 			"subCategory.$[outer].productsList.$[inner].colours":data.productColours,
-			"subCategory.$[outer].productsList.$[inner].description":data.productDescription
+			"subCategory.$[outer].productsList.$[inner].description":data.productDescription,
+			"subCategory.$[outer].productsList.$[inner].price":data.productPrice,
+			"subCategory.$[outer].productsList.$[inner].metaDescription":data.metaDescription,
+			"subCategory.$[outer].productsList.$[inner].metaTitle":data.metaTitle,
+			"subCategory.$[outer].productsList.$[inner].metaClonical":data.metaClonical,
+			"subCategory.$[outer].productsList.$[inner].details":data.details
+
 
 		}},
 		{

@@ -51,22 +51,10 @@ const product_schema=mongoose.Schema({
 					type:String,
 					deafult:""
 				},
-				details:[
-					{
-						title:{
-							type:String
-							
-						},
-						desc:{
-							type:String
-							
-						},
-						categoryIcon:{
-							type:String
-							
-						}
-					}
-				],
+				details:{
+					type:String,
+					deafult:""
+				},
 				colours:[{type:String}],
 				productFeature:{
 					type:String,
@@ -81,6 +69,15 @@ const product_schema=mongoose.Schema({
 				},brand:{
 					type:String,
 					default:""
+				},metaClonical:{
+					type:String,
+					deafult:""
+				},metaDescription:{
+					type:String,
+					deafult:""
+				},metaTitle:{
+					type:String,
+					deafult:""
 				}
 			}
 		]
