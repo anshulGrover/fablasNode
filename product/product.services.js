@@ -137,7 +137,7 @@ const addProducts=(subCategory,data)=>{
 				console.log(requiredSub);
 				requiredSub[0].productsList.push(data);
 				product.save().then((product) => {
-					resolve("product added");
+					resolve(product);
 				}).catch((err) => {
 					reject(err);
 				})

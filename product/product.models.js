@@ -51,7 +51,7 @@ const product_schema=mongoose.Schema({
 					type:String,
 					deafult:""
 				},
-				otherDetails:{
+				details:{
 					type:String,
 					deafult:""
 				},
