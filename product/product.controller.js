@@ -146,8 +146,8 @@ router.put("/updateProduct",(req,res,next) => {
 		productId,
 		productSubCatId,
 		productName,
-		productStock,
-		productImages,
+		stock,
+		images,
 		productFeature,
 		productUsage,
 		productDescription,
@@ -161,8 +161,8 @@ router.put("/updateProduct",(req,res,next) => {
 	}=req.body.data;
 	var data={
 		productName,
-		productStock,
-		productImages,
+		stock,
+		images,
 		productFeature,
 		productUsage,
 		productDescription,

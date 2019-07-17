@@ -160,10 +160,10 @@ const updateProduct=(id,subCategory,data)=>{
 		Product.update({"subCategory":{$elemMatch:{id:subCategory,"productsList.id":id}}},
 		{"$set":{
 			"subCategory.$[outer].productsList.$[inner].productName":data.productName,
-			"subCategory.$[outer].productsList.$[inner].stock":data.productStock,
+			"subCategory.$[outer].productsList.$[inner].stock":data.stock,
 			"subCategory.$[outer].productsList.$[inner].productFeature":data.productFeature,
 			"subCategory.$[outer].productsList.$[inner].productUsage":data.productUsage,
-			"subCategory.$[outer].productsList.$[inner].images":data.productImages,
+			"subCategory.$[outer].productsList.$[inner].images":data.images,
 			"subCategory.$[outer].productsList.$[inner].productSize":data.productSize,
 			"subCategory.$[outer].productsList.$[inner].colours":data.productColours,
 			"subCategory.$[outer].productsList.$[inner].description":data.productDescription,
