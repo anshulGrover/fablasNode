@@ -181,4 +181,16 @@ router.put("/updateProduct",(req,res,next) => {
 		res.sendStatus(404);
 	})
 })
+router.post('/deleteProduct',((req,res,next) => {
+	const{
+		productId,
+		subCategoryId
+	}=req.body.data;
+	productServices.deleteProduct(productId,subCategoryId).then((result) => {
+		res.json(result)
+	}).catch((err) => {
+		console.log(err);
+		res.sendStatus(404);
+	});
+}))
 module.exports= router;

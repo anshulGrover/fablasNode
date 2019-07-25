@@ -187,9 +187,43 @@ const updateProduct=(id,subCategory,data)=>{
 	})
 	
 	
-}	
+}
+const deleteProduct=(productId,subCategoryId) => {
+	return new Promise((resolve,reject) => {
+		Product.findOne({"subCategory.id":subCategoryId}).then((product) => {
+			//console.log(product);
+			if(!product){
+				resolve("Category not exist");
+			}
+			else{
+				const requiredSub=product.subCategory.filter(function(item){return item.id==subCategoryId});
+				const productsList=requiredSub[0].productsList;
+				for(var i=0;i<productsList.length;i++){
+					
+					if(productsList[i].id==productId){
+						console.log(productsList[i]);
+						productsList.splice(i,1);
+						
+					}
+				}
+				product.save().then((product) => {
+					resolve(product);
+				}).catch((err) => {
+					reject(err);
+				})
+					
+			}
+			
+		}).catch((err) => {
+			reject(err);
+		});
+		
+	}
+	)
+}
+	
 module.exports={
     
-	getProduct,getCategories,getProductById,getProductBySubCategory,getSubCategoryByCategory,getSubCategory,addCategory,addSubCategory,addProducts,updateProduct
+	getProduct,getCategories,getProductById,getProductBySubCategory,getSubCategoryByCategory,getSubCategory,addCategory,addSubCategory,addProducts,updateProduct,deleteProduct
 };
 
